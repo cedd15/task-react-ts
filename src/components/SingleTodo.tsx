@@ -32,7 +32,7 @@ const SingleTodo = ({ todo, todos, setTodos } : Props) => {
         setEdit(false);
     }
 
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         inputRef.current?.focus();
