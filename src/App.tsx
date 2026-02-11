@@ -22,13 +22,13 @@ function App() {
   console.log(todos);
 
   return (
-    <DragDropContext> 
+    <DragDropContext onDragEnd={() => {}}> 
       <div className='App'>
         <span className='heading'>Taskify</span>
         <InputField toDo={toDo} setTodo={setTodo} handleAdd={handleAdd} />
         <TodoList todos={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
       </div>
-    </DragDropContext>>
+    </DragDropContext>
   )
 }
 
