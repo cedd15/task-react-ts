@@ -3,7 +3,7 @@ import { MdDone } from "react-icons/md";
 import type { Todo } from "../model";
 import "./styles.css"
 import { useEffect, useRef, useState } from "react";
-import { Draggable } from "react-beautiful-dnd";
+import { Draggable } from "@hello-pangea/dnd";
 
 type Props = {
     index: number;  
@@ -43,9 +43,9 @@ const SingleTodo = ({ index, todo, todos, setTodos } : Props) => {
     return (
         <Draggable draggableId={todo.id.toString()} index={index}>
             {
-                (provided) => (
+                (provided, snapshot) => (
                     <form 
-                        className="singleTodos" 
+                        className={`singleTodos ${snapshot.isDragging ? "drag": ""}`}
                         action="" 
                         onSubmit={(e) => handleEdit(e, todo.id)}
                         ref={provided.innerRef}
